@@ -1,0 +1,356 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-*-LaTeX-*-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%     standard texheader fo writing extended documents
+%%%
+%%%  
+%%%
+%%%
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%**** header *****%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=A4, pagesize, DIV=calc, smallheadings,
+fontsize=11pt, expansion=false]{scrreprt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%### used packages ###%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%# standardmaessig verwendbar #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[ngerman]{babel}      %% neue deutsche Rechtschreibung
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+   
+\usepackage{graphicx}            %% include graphics
+\usepackage{float}               %% determine image positions
+\usepackage{soul}             %% offers additional types of text formation
+                                 %% HAS TO BE INSTALLED MANUALLY
+\usepackage{ellipsis}         %% HAS TO BE INSTALLED MANUALLY
+\usepackage{xspace}             
+\usepackage{tabularx}             %% tables
+\usepackage[font={footnotesize}]{caption}%% description of images and tables 
+\usepackage{booktabs}            %% formatting of tables
+\usepackage{rotating}            
+\usepackage{multirow}
+\usepackage{geometry}            %% page geometry 
+\usepackage{scrpage2}            %% page layout
+\usepackage{dsfont}              %% math font \mathds{R}, => "Real Numbers"                 
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[linkbordercolor={0 0 1}]{hyperref} %% links
+\usepackage{color}
+\usepackage{allrunes}
+\usepackage{comment}
+\usepackage[expansion=false]{microtype} %% for pdfTeX 1.4 or later
+\usepackage{wasysym}
+\usepackage{siunitx}
+
+
+\geometry{
+   a4paper,
+  twoside,
+%% paperheight=xxx,
+%% paperwidth=xxx,
+%%   outer=20mm,
+%%   inner=25mm,
+  left=25mm,
+  right=22mm,
+   top=25mm,
+   bottom=30mm
+%   includefoot
+}
+
+\clearscrheadfoot %% clear all 6 column fields
+\pagestyle{scrheadings} 
+\cfoot[\pagemark]{\pagemark}
+\setheadwidth{text}
+\setheadsepline[text]{0.3mm}
+\ohead{\headmark}
+\automark[chapter]{chapter}
+\renewcommand{\headfont}{\bfseries}
+
+%%%%%%%%%% Crystallographic Symbols %%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Needs the font cryst.pfb installed
+%%% Symbol is created by \cry{xxx}
+\DeclareFontFamily{U}{cry}{\hyphenchar\font=-1}
+\DeclareFontShape{U}{cry}{m}{n}{ <-> cryst}{}
+\newcommand{\cry}[1]{{\usefont{U}{cry}{m}{n} \symbol{#1}}}
+
+%%%%%%% linestretch and indent of paragraphs 
+\renewcommand{\baselinestretch}{1.15}
+\parindent0pt
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%### macros ###%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\latex}{\LaTeX\xspace}  %% \latex for "LaTeX"
+\newcommand{\tex}{\TeX\xspace}      %% \tex for "TeX
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\bibname}{References}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\forceindent}[1]{\leavevmode{\parindent=#1\indent}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%***** Document *****%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%***Title page(s)***%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+\LARGE
+\begin{center}
+\textbf{Einführung in die statistische Programmierung mit R}\\
+\Large\textbf{für epidemiologische (und andere) Fragestellungen}\\
+\large{Übungen}
+\end{center}
+\normalsize
+\textit{Alle Aufgaben sind mit den bisher gelernten Konstrukten lösbar. Natürlich dürft ihr euch zusammensetzen, und eure Lösungsansätze diskutieren.
+Der Quelltext und die Kommentare sollten grundsätzlich auf Englisch geschrieben werden. 
+Besonders schwere Aufgaben werden von wilden Tieren bewacht und können erstmal übersprungen werden.
+Die Einnahme leistungssteigender Psychopharmaka ist gestattet. Um ein Auslösen der Rauchmelder zu vermeiden, wird von zu allzu verbissenem Nachdenken abgeraten.\\
+Viel Spaß!
+}\\
+\vspace{2em}\hspace*{30em}
+\includegraphics[width=0.1\linewidth]{./imgs/Caffeine.png}
+\large\textsl{}
+%Übungen (Stichworte \textsl{\textsl{}}Eingabe, Ausgabe, Arithmetik);
+\normalsize
+\newcounter{exnum}
+\subsubsection*{Einfache Arithmetik}
+%\begin{enumerate}
+%\setcounter{enumi}{-1}
+\paragraph{\arabic{exnum}}
+Mache dich mit den Befehlen der Kommandozeile, die wir heute gelernt haben, soweit vertraut, dass du sie 
+benutzen kannst. Für den Editor sollte eine Zusammenfassung der Shortcuts in einem Ordner in eurem home-Verzeichnis auf 
+den virtuellen Systemen zu finden sein.%Alle, die unter einem \glqq echten\grqq Linux/Mac programmieren, finden die 
+%\glqq GNU Emacs Reference Card\grqq im Internet.
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Das Thermometer zeigt \SI{32}{\degreeCelsius}. Mit wieviel \si{K} muss der Thermodynamiker rechnen?
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wieviel ml Ethanol sind ungefähr in einer Doppelmaß Märzen mit \num{4.8} Vol.-\%  enthalten?
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wieviel ha sind 1001 Morgen Ackerland?
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+2223 extrem nervige Kinder streiten sich der Geburtagsfeier eines verwöhnten Bengels reicher Eltern um 7777 
+Kuchenstücke. 
+Wieviele Kuchenstücke bleiben bei Gleichverteilung ganzer Kuchenstücke an alle Blagen übrig? 
+Wieviele Stücke erhält jedes Kind von den verteilten Stücken? Ein Kuchenstück wiegt \SI{150}{g}. Wieviel Kuchen futtert 
+jede Rotznase bei 
+sozialistischer Gleichverteilung (nur das Geburtstagskind ist noch gleicher als alle anderen und verputzt 11 Stücke 
+allein.)
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Der Reproduktionsfaktor einer infektiösen Erkrankung beträgt 3. Wieviel Personen sind durch einen einzelnen Quellfall,
+verursacht durch die Nichteinhaltung von Hygienemaßnahmen eines illegalen Kindergeburtstages, 
+nach 3 Ansteckungsgenerationen infiziert, wenn jede Person jeweils gleichviel weitere Personen ansteckt?
+
+\subsubsection*{Variablen, Assignments}
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Gib einer Zahl $n$ einen beliebigen Wert $n > (10000)_{10}$ und berechne jeweils die Zahl, die bei Aneinanderreihung 
+der 
+ersten 3 und letzten 3 Ziffern entsteht, wenn $n$ im Dezimalsystem dargestellt wird. (Für Informatiker: Berechne die 
+gleichen Zahlen nach der Konvertierung der Darstellung von $n$ ins Oktalsystem)
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wo schneidet die Parabel $p(x)$  mit $\mathbb{R}\mapsto \mathbb{R}~ |~  p(x)=5x^2 + 6x - 7 $ die x-Achse?
+%\stepcounter{exnum}\paragraph{\arabic{exnum}}
+%3335 niedliche Kinderlein backen ein 
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Der Reproduktionsfaktor einer infektiösen Erkrankung beträgt 3. Wieviel Personen sind durch einen einzelnen Quellfall 
+nach 4 Ansteckungsgenerationen infiziert, wenn jede Person jeweils gleichviel weitere Personen ansteckt, sich aber der 
+Reproduktionsfaktor sich in der zweiten Generation aufgrund einer Mutation bei einem Fall verändert und diese Person 
+bzw. ihre Folgefälle jeweils 5 Personen ansteckt?
+
+\subsubsection*{Numerische Funktionen}
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+$N(0) = \num{1.2e5}$ Viruskopien infizieren ein Gewebe. Die Wachstumskonstante $\lambda$ des exponentiellen Wachstums
+$ N(t) = N(0) \cdot e^{\lambda t}$ beträgt $\lambda = \SI{0.3}{h^{-1}}$. Wieviele Viruskopien sind nach 3.5 h, 
+wieviele nach 7.5 h ungefähr entstanden?
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Die Auslenkung $I$ einer Feder wird als gedämpfte Schwingung durch
+$I(t) = I(0) \cdot \cos(\omega \cdot t) \cdot e^{dt}$ beschrieben.
+Wie weit muss die Feder ausgelenkt werden, so dass das System nach \SI{5}{\min}
+noch eine Differenz von minimaler und maximaler Auslenkung von mindestens \SI{6}{\min{cm}} aufweist, wenn die 
+Dämpfungskonstante $d = 
+\SI{0.25}{\cm}$ und die Schwingungsfrequenz $\omega = \SI{25}{\text{Hz}}$ beträgt?
+Keine Übungen
+
+
+\subsubsection*{print()}
+
+\subsubsection*{Kommentare}
+
+\subsubsection*{\texttt{\textbf{Vector}}: Access-Operatoren, Subsets}
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wo liegt der Schwerpunkt (für ganz genaue \glqq Massenmittelpunkt\grqq) eines Objektes, das sich aus punktförmigen 
+Massen $m_i$ an 
+den Orten $\vec{p}_i$ zusammensetzt?
+\[
+m_1 = \SI{23}{\micro g},~~ 
+m_2 = \SI{77}{\micro g},~~
+m_3 = \SI{56}{\micro g},~~
+ \]
+ \[
+\vec{p}_1 = \begin{pmatrix}a \\ b \\ c\end{pmatrix},~~ 
+\vec{p}_2 = \begin{pmatrix}a \\ b \\ c\end{pmatrix},~~ 
+\vec{p}_3 = \begin{pmatrix}a \\ b \\ c\end{pmatrix}
+\]
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Mache dich mit der Funktion \texttt{runif(n, min = 0, max = 1)} vertraut. Erstelle dann einen \texttt{Vector} 
+namens \texttt{alpha} mit 5 
+Random-Werte zwischen 1 und 100 und einen \texttt{Vector} namens \texttt{beta} mit 100 Random-Werten des gleichen 
+Intervalls.
+Vertausche anschließend die Inhalte der beiden Objekte.
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Erstelle einen \texttt{Vector} der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln.
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Erstelle einen Vector
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wieviele Zahlen zwischen 111111 und 7777777 enden mit einer 6 und sind durch 23 teilbar?
+
+
+\subsubsection*{\texttt{\textbf{list}}}
+
+
+
+\subsubsection*{\texttt{\textbf{dataframe}}}
+
+
+
+\subsubsection*{\texttt{\textbf{dataframe}-Manipulation (Subsetting, Merging, Renaming)}}
+
+\subsubsection*{Skalentypen (Theorie)}
+
+\subsubsection*{\texttt{\textbf{factor}} Kategorien)}
+
+\subsubsection*{Summen, Varianzen, Standardabweichung(en)}
+
+\subsubsection*{\texttt{character}, String-Manipulation, Substrings, Konkatenation}
+  
+\subsubsection*{*.csv-Dateien lesen}
+
+\subsubsection*{\texttt{logical}}
+
+\subsubsection*{Funktionales \texttt{Ifelse(test, yes, no)}}
+
+\subsubsection*{Funktionen}
+
+\subsubsection*{*.csv-Dateien schreiben}
+
+\subsubsection*{Textdateien schreiben}
+
+\subsubsection*{Quantile, Median, Mittelwerte}
+
+
+\subsubsection{R-base-Plots: dots, lines, boxplots}
+
+\subsubsection{Lineare Regression}
+
+\subsubsection{Residuenanalyse}
+
+\subsubsection{Korrelation}
+
+\subsubsection*{Funktionelle Programmierung}
+(Example: Solve eqs of type ($x^2$+m)=t)
+
+\subsubsection*{Minima, Maxima}
+
+\subsubsection*{Vektorisierung}
+
+\subsubsection*{pmin, pmax}
+
+\subsubsection*{\texttt{(x)apply-Schleifen} (I)}
+
+\subsubsection*{Achsentransformationen}
+
+
+\subsubsection*{Guter Coding-Stil}
+
+\subsubsection*{Type Casting}
+
+\subsubsection*{\texttt{matrix} und \texttt{array}}
+
+\subsubsection*{Grundlegende lineare Algebra}
+
+\subsubsection*{Kontingenztafeln}
+
+\subsubsection*{\texttt{(x)apply-Schleifen} (II)}
+
+\subsubsection*{Imperative Verzweigung (I), if-else}
+
+\subsubsection*{Imperative Schleifen (I), for-while}
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+SEIR-Modell
+
+\subsubsection*{Imperative Verzweigung (II), switch-case}
+
+\subsubsection*{Imperative Schleifen (II), break-continue}
+
+\subsubsection*{flags}
+
+\subsubsection*{Packages}
+
+\subsubsection*{Locals}
+
+\subsubsection*{\texttt{Reshape2}}
+
+\subsubsection*{Binomialkoeffizienten}
+
+\subsubsection*{t-test}
+
+\subsubsection{Logistische Regression}
+
+\subsubsection{Wilcoxon-Rangsumme}
+
+\subsubsection*{ANOVA}
+
+\subsubsection{Imperative Schleifen (III), foreach}
+
+\subsubsection{Tiles, pdf printing}
+
+\subsubsection{Code-Strukturierung}
+
+\subsubsection{Package-Zitation}
+
+\subsubsection{Packages erstellen}
+
+\subsubsection{\texttt{magrittr}}
+
+\subsubsection{Tydiverse - \texttt{tibble}}
+
+\subsubsection{Tydiverse - \texttt{dplyr}}
+
+\subsubsection{Tydiverse - \texttt{dplyr2}}
+
+\subsubsection{R to markdown}
+
+\subsubsection{Bioinformatik - sequence alignments, Needleman-Wunsch / Smith Waterman, logits, blosum matrix, dynamic 
+  programming, multiple sequence alignments, pedigrees}
+
+\subsubsection{knitR}
+
+\subsubsection{RShiny}
+
+\subsubsection{SQL-Interfaces}
+
+\end{document}
