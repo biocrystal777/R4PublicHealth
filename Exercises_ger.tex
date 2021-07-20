@@ -17,7 +17,7 @@ fontsize=11pt, expansion=false]{scrreprt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%# standardmaessig verwendbar #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage[ngerman]{babel}      %% neue deutsche Rechtschreibung
-\usepackage[english]{babel}
+\usepackage[english, ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
    
@@ -46,7 +46,8 @@ fontsize=11pt, expansion=false]{scrreprt}
 \usepackage[expansion=false]{microtype} %% for pdfTeX 1.4 or later
 \usepackage{wasysym}
 \usepackage{siunitx}
-
+\usepackage{wrapfig}
+\usepackage{upgreek}
 
 \geometry{
    a4paper,
@@ -181,18 +182,32 @@ $ N(t) = N(0) \cdot e^{\lambda t}$ beträgt $\lambda = \SI{0.3}{h^{-1}}$. Wievie
 wieviele nach 7.5 h ungefähr entstanden?
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
+\label{subsec:DampedOsz}
+\begin{wrapfigure}{r}{0.2\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{./imgs/dampedOsz.pdf}
+\end{wrapfigure}
 Die Auslenkung $I$ einer Feder wird als gedämpfte Schwingung durch
 $I(t) = I(0) \cdot \cos(\omega \cdot t) \cdot e^{dt}$ beschrieben.
-Wie weit muss die Feder ausgelenkt werden, so dass das System nach \SI{5}{\min}
-noch eine Differenz von minimaler und maximaler Auslenkung von mindestens \SI{6}{\min{cm}} aufweist, wenn die 
-Dämpfungskonstante $d = 
-\SI{0.25}{\cm}$ und die Schwingungsfrequenz $\omega = \SI{25}{\text{Hz}}$ beträgt?
-Keine Übungen
+Die Dämpfungskonstante $d$ beträgt $d = \SI{0.25}{\cm}$ und die Schwingungsfrequenz $f = \SI{25}{\text{Hz}}$.
+In welcher Position befindet sich die Feder nach exakt \SI{5}{\s}  bei einer Auslenkung von
+$I(0) = \SI{4}{\cm}$?\\
+Wie weit muss die Feder ausgelenkt werden, so dass das System nach \SI{4}{\min}
+noch einen Abst von minimaler und maximaler Auslenkung $|\Delta I|(t)$ von mindestens \SI{6}{\min{cm}} aufweist?\\
+Tipps: 
+\begin{itemize}
+  \item Die Kreisfrequenz $\omega$ beträgt $\omega = 2 \uppi f$
+  \item Wir setzen gehen davon aus, dass der maximale Auslenkungszustand und den unmittelbar folgenden minimale Zustand 
+  den gleichen Betrag haben, d.h. $I(k2\uppi f) \approx -I\left( \left(k2 + 1 \right) \uppi f\right)$ , $k \in 
+  \mathbb{N}$
+  \item Daher können wir die maximale Auslenkung als $|\Delta I|(t) \approx 2 \cdot I(0) \cdot \cdot e^{dt} $ annähern.
+  \item Die vergangene Zeit $t$ lässt sich durch $t = k f^{-1}$ beschreiben.
+\end{itemize}
 
+%Keine Übungen
+%\subsubsection*{print()}
 
-\subsubsection*{print()}
-
-\subsubsection*{Kommentare}
+%#\subsubsection*{Kommentare}
 
 \subsubsection*{\texttt{\textbf{Vector}}: Access-Operatoren, Subsets}
 
@@ -216,20 +231,29 @@ Mache dich mit der Funktion \texttt{runif(n, min = 0, max = 1)} vertraut. Erstel
 namens \texttt{alpha} mit 5 
 Random-Werte zwischen 1 und 100 und einen \texttt{Vector} namens \texttt{beta} mit 100 Random-Werten des gleichen 
 Intervalls.
-Vertausche anschließend die Inhalte der beiden Objekte.
+Vertausche anschließend die Inhalte der beiden Objekt, ohne irgendeine spezifische swap-Funktion zu verwenden.
+
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
 Erstelle einen \texttt{Vector} der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln.
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
-Erstelle einen Vector
+Erstelle einen \texttt{Vector} $t$ und einen \texttt{Vector} $I$, der mit einer sample rate von \SI{1}{kHz} die 
+Bewegung der Feder aus Aufgabe 10% \ref{subsec:DampedOsz}
+beschreibt.
+Erstelle einen weiteres \texttt{Vector}-Paar, der mit einer Abtastrate von $2f$ Minima und Maxima bestimmt.
+In einem dritten \texttt{Vector}-Paar soll der erwarte Verlauf von $|\Delta I(t)|$ modelliert werden.
+
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
-Wieviele Zahlen zwischen 111111 und 7777777 enden mit einer 6 und sind durch 23 teilbar?
-
+$I(0) = 10$ Partyurlauber bringen bei ihrer eine infektiöse, neuartige Durchfallerkranung als Souvenir aus Malle mit 
+und stecken ihre Mitmenschen damit an.
+Die ungebremste Infektionswelle verläuft im Beginn 8 Wochen lang exponentiell mit den Neuinzidenzen $I(t) = I(0) 
+\text{e}^{\lambda t}$.
+Berechne den Verlauf der 7-Tage Inzidenz für eine Wachstumskonstante $\lambda = \SI{0.25}{\text{d}^{-1}}$ sowie die zu 
+erwartende Prävalenz, wenn die Erkrankung im Schnitt 6 Tage andauert.
 
 \subsubsection*{\texttt{\textbf{list}}}
-
 
 
 \subsubsection*{\texttt{\textbf{dataframe}}}
@@ -240,6 +264,14 @@ Wieviele Zahlen zwischen 111111 und 7777777 enden mit einer 6 und sind durch 23 
 
 \subsubsection*{Skalentypen (Theorie)}
 
+\subsubsection*{\texttt{logical}}
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Erstelle einen Vector der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln, ohne \texttt{rep()} zu verwenden.
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
+Wieviele ganze Zahlen zwischen 111111 und 7777777 enden mit einer 6 und sind durch 23 teilbar?
+
 \subsubsection*{\texttt{\textbf{factor}} Kategorien)}
 
 \subsubsection*{Summen, Varianzen, Standardabweichung(en)}
@@ -248,7 +280,6 @@ Wieviele Zahlen zwischen 111111 und 7777777 enden mit einer 6 und sind durch 23 
   
 \subsubsection*{*.csv-Dateien lesen}
 
-\subsubsection*{\texttt{logical}}
 
 \subsubsection*{Funktionales \texttt{Ifelse(test, yes, no)}}
 
