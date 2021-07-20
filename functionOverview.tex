@@ -1,0 +1,340 @@
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -*-LaTeX-*-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 
+%%% standard texheader fo writing extended documents
+%%% 
+%%% 
+%%% 
+%%% 
+%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% **** header *****%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[ucs]{beamer}
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ### used packages ###%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% # standardmaessig verwendbar #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[ngerman]{babel}      %% neue deutsche Rechtschreibung
+\usepackage[english]{babel}
+% \usefonttheme[onlymath]{serif}
+% \usepackage[utf8]{inputenc}    
+\usepackage{graphicx}            %% include graphics
+\usepackage{float}               %% determine image positions
+%% \usepackage{soul}             %% offers additional types of text formatil
+%% HAS TO BE INSTALLED MANUALLY
+%% \usepackage{ellipsis}         %% HAS TO BE INSTALLED MANUALLY
+\usepackage{xspace}             
+\usepackage{tabularx}             %% tables
+\usepackage[font={footnotesize}]{caption}%% description of images and tables 
+\usepackage{booktabs}            %% formatting of tables
+\usepackage{rotating}            
+\usepackage{multirow}
+\usepackage{geometry}            %% page geometry 
+\usepackage{scrpage2}            %% page layout
+\usepackage{dsfont}              %% math font \mathds{R}, => "Real
+
+%% Numbers"  
+% \usepackage{mathtools}
+% \usepackage[absolute,overlay]{textpos}
+% \usepackage{bm}
+\usepackage{mathabx}
+\usepackage{allrunes}      
+% \usepackage{natbib}
+
+\usepackage{amssymb}
+% \usepackage{amsthm}
+\usepackage{amsmath}
+% \usepackage[linkbordercolor={0 0 1}]{hyperref} %% links
+% \usepackage[table]{xcolor}
+% \PassOptionsToPackage{xcolor}{table}
+\usepackage{colortbl}
+
+\usepackage[expansion=false]{microtype} %% for pdfTeX 1.4 or later
+\usepackage{comment}
+\usepackage{mathtools}
+% usepackage{comment}
+% \usepackage{wasysym}
+
+% \usepackage{eurosym}
+
+\usepackage{animate}
+\usepackage{nicefrac}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{siunitx}
+% \usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+% \usepackage{lmodern}\usepackage{polski}
+\usepackage{mhchem}
+\usepackage{ogonek}
+\usepackage{calc}
+% \clearscrheadfoot %% clear all 6 column fields
+% \pagestyle{scrheadings} 
+% \cfoot[\pagemark]{\pagemark}
+% \setheadwidth{text}
+% \setheadsepline[text]{0.3mm}
+% \ohead{\headmark}
+% \automark[chapter]{chapter}
+% \renewcommand{\headfont}{\bfseries}
+
+%%%%%%%%%% Crystallographic Symbols %%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Needs the font cryst.pfb installed
+%%% Symbol is created by \cry{xxx}
+\DeclareFontFamily{U}{cry}{\hyphenchar\font=-1}
+\DeclareFontShape{U}{cry}{m}{n}{ <-> cryst}{}
+\newcommand{\cry}[1]{{\usefont{U}{cry}{m}{n} \symbol{#1}}}
+
+\newenvironment{packed_item}{
+  \begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+  }{\end{itemize}}
+
+% \setlength{parindent}{0pt}
+
+\tikzset{
+  every overlay node/.style={
+    draw=white,fill=white,rounded corners,anchor=north west,
+  },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+  \tikz[baseline,overlay]\node[every overlay node]
+}%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ### macros ###%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\latex}{\LaTeX\xspace}  %% \latex for "LaTeX"
+\newcommand{\tex}{\TeX\xspace}      %% \tex for "TeX
+\newcommand{\MTFIO}{\textbf{[MTFIO]}}
+\newcommand{\euler}{\mathit{e}}
+\newcommand{\FT}[1]{\mathcal{F}\left(#1\right)}
+\newcommand{\iFT}[1]{\mathcal{F}^{-1}\left(#1\right)}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\DeclareMathOperator\caret{\raisebox{1ex}{$\scriptstyle\wedge$}}
+
+%%%%%%% style options
+\usetheme{PaloAlto}
+\begin{comment}
+\makeatletter
+\setbeamertemplate{sidebar canvas right}{}
+\setbeamertemplate{sidebar right}{}
+%\setbeamercolor{titlelike}{parent=structure,bg=yellow!15!orange}
+\setbeamercolor{logo}{bg=blue!15!black}
+\setbeamercolor{logo}{bg=blue!15!black}
+\setbeamercolor{frametitle}{bg=blue}     %controls the color of the headline
+%\setbeamercolor{sidebar}{bg=blue}
+
+\setbeamertemplate{sidebar}{%
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=gray!85,bottom color=gray!85,middle color=white]
+([shift={(0.5cm,-0.5cm)}]current page.north west)
+rectangle
+([shift={(-0.5cm,0.5cm)}]current page.south east);
+\end{tikzpicture}%   
+}
+
+
+\makeatother
+\end{comment}
+\definecolor{msl}{RGB}{16,16,100}
+\usecolortheme[RGB={16,16,100}]{structure}
+\setbeamercolor{frametitle}{bg=msl}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+%\setbeamercolor{sidebar}{bg=msl}
+\setbeamercolor{title in sidebar}{fg=white}
+\definecolor{logoCol}{RGB}{12,12,84}
+\setbeamercolor{logo}{bg=msl}
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+
+\definecolor{breakColor}{HTML}{7777FF}
+\definecolor{lgrey}{HTML}{777777}
+\definecolor{myblue}{HTML}{000066}
+\definecolor{mypurple}{HTML}{6600CC}
+\definecolor{mygreen}{HTML}{005522}
+\definecolor{myorange}{HTML}{FF6600}
+\definecolor{lgrey}{HTML}{777777}
+\definecolor{cellOne}{HTML}{81F7BE}
+\definecolor{cellTwo}{HTML}{A9BCF5}
+\definecolor{mslGrad}{HTML}{73D7FF}
+
+\colorlet{titleright}{msl!60!mslGrad}
+%\colorlet{titlemid}{msl!97!white}
+\colorlet{titlecentral}{msl!85!mslGrad}
+\colorlet{titleleft}{msl}%!97!mslGrad}
+
+\makeatletter
+
+\pgfdeclarehorizontalshading{beamer@frametitleshade}{\paperheight}{%
+  color(\beamer@sidebarwidth)=(titleleft);%
+  %  color(8cm)=(titlecentral);%
+  color(\paperwidth)=(titleright)%
+}
+
+\pgfdeclareverticalshading[titleleft,titleright]{beamer@sidebar}{\beamer@sidebarwidth}{%
+  color(0pt)=(titleright);%
+  color(\sidebarheight/3)=(titlecentral);%
+  color(\sidebarheight)=(titleleft)%
+}
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=\paperwidth]{frametitle}%
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+    \hfill%
+    \fi%
+    \ifdim\beamer@sidebarwidth>0pt%  
+    \usebeamercolor[bg]{logo}%
+    \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@headheight}%
+      \usebeamercolor{frametitle right}%
+      \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@headheight}}%
+      \pgfusepath{clip}%
+      \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}%
+    \end{pgfpicture}%
+    \vskip-\beamer@headheight%
+    \vrule width\beamer@sidebarwidth height \beamer@headheight%
+    \hskip-\beamer@sidebarwidth%
+    \hbox to \beamer@sidebarwidth{\hss\vbox to
+      \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+    \else%
+    \vrule width0pt height \beamer@headheight%  
+    \fi%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{sidebar canvas left}{%
+  \pgfuseshading{beamer@sidebar}%
+}
+
+\makeatother
+
+
+% \usetheme{Warsaw}
+% \usecolortheme{seahorse}
+% \usecolortheme{rose}
+% \usefonttheme[onlylarge]{structuresmallcapsserif}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ***** Document *****%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 
+%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\title[]{Summary of R functions}
+% \subtitle{Master presentation}
+%\author[]{Benedikt H\"{a}usele}
+\date[2021-07]{2021-07}
+%\institute{University of Konstanz}
+
+\begin{document}
+  
+  \begin{frame}
+    \titlepage
+  \end{frame}
+  
+  \section{Basics}
+  
+  \begin{frame}
+    \frametitle{Simple arithmetics}
+       \begin{columns}[T]
+      \begin{column}{0.5\textwidth}
+          \begin{block}{Adding}
+        \ttfamily > 17 + 4 \newline [1] 21
+           \end{block}
+     \begin{block}{Subtraction}
+        \ttfamily > 17 - 4 \newline [1] 13
+      \end{block}
+      \begin{block}{Multiplication}
+         \ttfamily > 17 * 4 \newline [1] 61
+       \end{block}
+           \begin{block}{Exponentiation}
+       \ttfamily > 17 $\caret$ 4  \rmfamily ~~or~~ \ttfamily 17 ** 4
+       \newline [1] 83521
+     \end{block}
+   
+      \end{column}    
+      \begin{column}{0.5\textwidth}
+        
+      \begin{block}{Division}
+        \ttfamily > 17 / 4 \newline [1] 4.25
+      \end{block}
+      
+      
+      \begin{block}{Integer Division}
+  \ttfamily > 17 \%/\% 4 \newline [1] 4
+\end{block}
+  \begin{block}{Modulus}
+    \ttfamily > 17 \%\% 4 \newline [1] 10
+  \end{block}
+
+      \end{column}
+    \end{columns}
+%    \begin{block}{Reasons for fractionation}
+%      \begin{enumerate}
+%        \item Isolation of substances
+%      \end{enumerate}
+ %   \end{block}
+  \end{frame}
+  
+   \begin{frame}
+    \frametitle{Assignments and local environment}
+
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Data types (I)}
+
+  \end{frame}
+  
+  \begin{frame}
+ %   \frametitle{Why separate things in science?}
+  \end{frame}
+  
+  \begin{frame}
+%    \frametitle{Why separate things in science?}
+    \begin{center}
+%      \includegraphics[width=\linewidth]{img/fractionation/observation2.pdf}
+    \end{center}
+  \end{frame}
+  
+  \begin{frame}
+%    \frametitle{Why separate things in science?}
+%    \begin{block}{Reasons for fractionation}
+%      \begin{enumerate}
+%        \item Isolation of substances
+%        \item Reduction of complexity
+%      \end{enumerate}
+%    \end{block}
+  \end{frame}
+  
+  
+  \begin{frame}
+%    \frametitle{How to fractionate small particles?}
+  \end{frame}
+  
+  \begin{frame}
+%    \frametitle{Why separate things in science?}
+%    \begin{block}{Reasons for fractionation}
+%      \begin{enumerate}
+%        \item Isolation of substances
+%        \item Reduction of complexity
+%        \item Quantification of physical properties
+%      \end{enumerate}
+%    \end{block}\textsl{}
+  \end{frame}
+  
+  
+  
+  
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
