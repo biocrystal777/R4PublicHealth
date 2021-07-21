@@ -303,76 +303,162 @@ rectangle
     \texttt{print(a)}
   \end{block}
  \end{frame}  
+
+ \begin{frame}
+  \frametitle{Numeric functions ("Scalar" / element-wise)}
+    \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Exponential function}
+\texttt{> exp(1)} \newline [1] 2.718282
+      \end{block}
+  
+  \begin{block}{Trigonometric functions }
+\footnotesize \ttfamily>\! sin(0) >\! cos(pi) >\! tan(pi/4) \newline
+[1] 0 ~  [1] -1 ~~  [1] 1
+    \end{block}
+    \begin{block}{Absolute values}
+\ttfamily > abs(-40) \newline [1] 40
+  \end{block}    
+  
+%  \begin{block}{Hyperbolic functions (I)}
+%   x 
+%  \end{block}
+%  \begin{block}{Hyperbolic functions (II)}
+%  x
+%  \end{block}
+  
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      
+        \begin{block}{Square Root}
+        \texttt{> sqrt(4)}\newline          [1] 2
+      \end{block}
+
+\begin{block}{Logarithms}
+\texttt{> log(x) } ~~ natural \newline
+
+\texttt{> log(x) } ~~ natural \newline
+
+\texttt{> log(x) } ~~ natural \newline
+\end{block}    
+
+
+      
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
 \begin{frame}
         \frametitle{Data structures: \texttt{Vector} generation}
-  \begin{columns}[T]
-      \begin{column}{0.5\textwidth}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-      \end{column}
-\end{columns}
+ % \begin{columns}[T]%$   \begin{column}{0.5\textwidth}
+    \begin{block}{Combination}
+\ttfamily > vec <- c(1.2, 2.3, 4.5, 7, 9, 10)\newline
+> print(vec) \newline
+[1]  1.2  2.3  4.5  7.0  9.0 10.0
+     \end{block}
+
+     \begin{block}{Dot operator (Integer sequence)}
+\ttfamily > vec <- 1:5 \newline
+> print(vec) \newline
+[1] 1 2 3 4 5
+     \end{block}
+   
+     \begin{block}{General sequence}
+\ttfamily >  seq(from = 2,  to = 10, by = 2)\newline
+[1] 2 4 6 8 10
+     \end{block}
+   
+%   \end{column}
+%      \begin{column}{0.5\textwidth}
+%      \end{column}
+%\end{columns}
   \end{frame}
 
 \begin{frame}
-  \frametitle{Data structures: \texttt{Vector} subsetting}
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-    \end{column}
-  \end{columns}
+  \frametitle{Data structures: \texttt{Vector} - specific functions}
+
+\begin{block}{Length of a vector}
+  \ttfamily
+  > vec <- 3:27 \newline
+  > length(vec)
+  [1] 25
+\end{block}
+
+\begin{block}{Sorting}
+\ttfamily > vec <- c(1, 63, 45, 27, 34)\newline
+> sort(vec)\newline
+[1] 1 27 34 45 63
+\end{block}
+
+\begin{block}{Reversing}
+\ttfamily > vec <- 1:5\newline
+> rev(vec)\newline
+[1] 5 4 3 2 1
+\end{block}
+
+%\begin{block}{Clearing from duplicates}
+%\ttfamily
+%> vec
+%\end{block}
+
+
+
 \end{frame}
 
 \begin{frame}
-  \frametitle{Data structures: \texttt{Vector} - specific functions}
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-    \end{column}
-  \end{columns}
+  \frametitle{Data structures: \texttt{Vector} subsetting (I)}
+
+    \begin{block}{By single index}
+      \ttfamily
+     > vec <- seq(from = 10, to 50, by = 0,1)\newline
+     > vec[5] \newline
+     [1] 
+    \end{block}
+  
+  \begin{block}{By index vector}  
+   \ttfamily
+  > vec <- seq(from = 10, to 50, by = 0,1)\newline
+  > vec[5:10]\newline
+  [1] 10.4 10.5 10.6 10.7 10.8
+\end{block}
+
+\begin{block}{All but ...}
+   \ttfamily
+> vec <- seq(from = 10, to 50, by = 0,1)\newline
+> vec[-(3:4)] \newline
+[1] 10 10.1 10.4 10.5 10.6
+\end{block}
+  
 \end{frame}
 
-  
+\begin{frame}
+  \frametitle{Data types: \texttt{Numeric} \& \texttt{Character}}
+     
+\end{frame}
+
+
   \begin{frame}
     \frametitle{Data structures: \texttt{List}}
  %   \frametitle{Why separate things in science?}
   \end{frame}
   
   \begin{frame}
-%    \frametitle{Why separate things in science?}
-    \begin{center}
-%      \includegraphics[width=\linewidth]{img/fractionation/observation2.pdf}
-    \end{center}
+    \frametitle{Data structures: \texttt{Data Frame}}
+    %   \frametitle{Why separate things in science?}
   \end{frame}
+
+
   
   \begin{frame}
-%    \frametitle{Why separate things in science?}
-%    \begin{block}{Reasons for fractionation}
-%      \begin{enumerate}
-%        \item Isolation of substances
-%        \item Reduction of complexity
-%      \end{enumerate}
-%    \end{block}
+    \frametitle{blank}
+    \begin{columns}[T]
+      \begin{column}{0.5\textwidth}
+      \end{column}
+     \begin{column}{0.5\textwidth}
+      \end{column}
+    \end{columns}
   \end{frame}
-  
-  
-  \begin{frame}
-%    \frametitle{How to fractionate small particles?}
-  \end{frame}
-  
-  \begin{frame}
-%    \frametitle{Why separate things in science?}
-%    \begin{block}{Reasons for fractionation}
-%      \begin{enumerate}
-%        \item Isolation of substances
-%        \item Reduction of complexity
-%        \item Quantification of physical properties
-%      \end{enumerate}
-%    \end{block}\textsl{}
-  \end{frame}
-  
-  
   
   
 \end{document}

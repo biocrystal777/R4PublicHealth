@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%**** header *****%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[paper=A4, pagesize, DIV=calc, smallheadings,
-fontsize=11pt, expansion=false]{scrreprt}
+fontsize=12pt, expansion=false]{scrreprt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%### used packages ###%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -182,14 +182,21 @@ $ N(t) = N(0) \cdot e^{\lambda t}$ beträgt $\lambda = \SI{0.3}{h^{-1}}$. Wievie
 wieviele nach 7.5 h ungefähr entstanden?
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
+Eine neue Rhinovirenvariante breitet sich an einer großen Campus-Universität aus. Der kumulierte Anteil der 
+Infizierten
+wird durch die logistische Funktion 
+$L(t) = \frac{1}{1 + a \text{e}^{-bt}}$ beschrieben. 
+Ab wann sind \SI{90}{\percent} der beteiligten Personen infiziert, wenn $a = 0.85$ und $b = \SI{0.65}{d^{-1}}$?
+
+\stepcounter{exnum}\paragraph{\arabic{exnum}}
 \label{subsec:DampedOsz}
 \begin{wrapfigure}{r}{0.2\linewidth}
   \centering
   \includegraphics[width=\linewidth]{./imgs/dampedOsz.pdf}
 \end{wrapfigure}
 Die Auslenkung $I$ einer Feder wird als gedämpfte Schwingung durch
-$I(t) = I(0) \cdot \cos(\omega \cdot t) \cdot e^{dt}$ beschrieben.
-Die Dämpfungskonstante $d$ beträgt $d = \SI{0.25}{\cm}$ und die Schwingungsfrequenz $f = \SI{25}{\text{Hz}}$.
+$I(t) = I(0) \cdot \cos(\omega \cdot t) \cdot e^{-d\cdot t}$ beschrieben.
+Die Dämpfungskonstante $d$ beträgt $d = \SI{0.25}{\min}$ und die Schwingungsfrequenz $f = \SI{25}{\text{Hz}}$.
 In welcher Position befindet sich die Feder nach exakt \SI{5}{\s}  bei einer Auslenkung von
 $I(0) = \SI{4}{\cm}$?\\
 Wie weit muss die Feder ausgelenkt werden, so dass das System nach \SI{4}{\min}
@@ -221,9 +228,9 @@ m_2 = \SI{77}{\micro g},~~
 m_3 = \SI{56}{\micro g},~~
  \]
  \[
-\vec{p}_1 = \begin{pmatrix}a \\ b \\ c\end{pmatrix},~~ 
-\vec{p}_2 = \begin{pmatrix}a \\ b \\ c\end{pmatrix},~~ 
-\vec{p}_3 = \begin{pmatrix}a \\ b \\ c\end{pmatrix}
+\vec{p}_1 = \begin{pmatrix}10 \\ 43 \\ 25\end{pmatrix},~~ 
+\vec{p}_2 = \begin{pmatrix}8 \\ -55 \\ 2\end{pmatrix},~~ 
+\vec{p}_3 = \begin{pmatrix}7 \\ 7 \\ 8\end{pmatrix}
 \]
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
@@ -235,15 +242,16 @@ Vertausche anschließend die Inhalte der beiden Objekt, ohne irgendeine spezifis
 
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
-Erstelle einen \texttt{Vector} der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln.
+Erstelle einen \texttt{Vector} der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln. Verwende dafür die Funktion 
+\texttt{rep(x, ...)}.
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
-Erstelle einen \texttt{Vector} $t$ und einen \texttt{Vector} $I$, der mit einer sample rate von \SI{1}{kHz} die 
-Bewegung der Feder aus Aufgabe 10% \ref{subsec:DampedOsz}
-beschreibt.
-Erstelle einen weiteres \texttt{Vector}-Paar, der mit einer Abtastrate von $2f$ Minima und Maxima bestimmt.
-In einem dritten \texttt{Vector}-Paar soll der erwarte Verlauf von $|\Delta I(t)|$ modelliert werden.
-
+Erstelle einen \texttt{Vector} $t$ und einen \texttt{Vector} $I$, die mit einer sample rate von \SI{1}{kHz} die 
+Bewegung der Feder aus Aufgabe 11 % \ref{subsec:DampedOsz}
+beschreiben.
+Erstelle einen weiteres \texttt{Vector}-Paar, der mit einer Abtastrate von $2f$ ungefähr Minima und Maxima bestimmt.
+In einem dritten \texttt{Vector}-Paar soll daraus erwarte Verlauf von $|\Delta I(t)|$ mit der Abtastrate $f$ modelliert 
+werden.
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
 $I(0) = 10$ Partyurlauber bringen bei ihrer eine infektiöse, neuartige Durchfallerkranung als Souvenir aus Malle mit 
