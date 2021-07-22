@@ -155,7 +155,7 @@ allein.)
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
 Der Reproduktionsfaktor einer infektiösen Erkrankung beträgt 3. Wieviel Personen sind durch einen einzelnen Quellfall,
-verursacht durch die Nichteinhaltung von Hygienemaßnahmen eines illegalen Kindergeburtstages, 
+verursacht durch die Nichteinhaltung von Hygienemaßnahmen bei der Abhaltung eines illegalen Kindergeburtstages, 
 nach 3 Ansteckungsgenerationen infiziert, wenn jede Person jeweils gleichviel weitere Personen ansteckt?
 
 \subsubsection*{Variablen, Assignments}
@@ -170,10 +170,14 @@ Wo schneidet die Parabel $p(x)$  mit $\mathbb{R}\mapsto \mathbb{R}~ |~  p(x)=5x^
 %3335 niedliche Kinderlein backen ein 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
 Der Reproduktionsfaktor einer infektiösen Erkrankung beträgt 3. Wieviel Personen sind durch einen einzelnen Quellfall 
-nach 4 Ansteckungsgenerationen infiziert, wenn jede Person jeweils gleichviel weitere Personen ansteckt, sich aber der 
-Reproduktionsfaktor sich in der zweiten Generation aufgrund einer Mutation bei einem Fall verändert und diese Person 
+nach 4 Ansteckungsgenerationen infiziert,
+\begin{itemize}
+\item wenn jede Person jeweils gleichviel weitere Personen ansteckt, 
+\item sich aber der 
+Reproduktionsfaktor sich in der zweiten Generation aufgrund einer Mutation bei einem Fall verändert 
+\item diese Person 
 bzw. ihre Folgefälle jeweils 5 Personen ansteckt?
-
+\end{itemize}
 \subsubsection*{Numerische Funktionen}
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
@@ -196,19 +200,20 @@ Ab wann sind \SI{90}{\percent} der beteiligten Personen infiziert, wenn $a = 0.8
 \end{wrapfigure}
 Die Auslenkung $I$ einer Feder wird als gedämpfte Schwingung durch
 $I(t) = I(0) \cdot \cos(\omega \cdot t) \cdot e^{-d\cdot t}$ beschrieben.
-Die Dämpfungskonstante $d$ beträgt $d = \SI{0.25}{\min}$ und die Schwingungsfrequenz $f = \SI{25}{\text{Hz}}$.
+Die Dämpfungskonstante $d$ beträgt $d = \SI{0.25}{\min^{-1}}$ und die Schwingungsfrequenz $f = \SI{25}{\text{Hz}}$.
 In welcher Position befindet sich die Feder nach exakt \SI{5}{\s}  bei einer Auslenkung von
 $I(0) = \SI{4}{\cm}$?\\
-Wie weit muss die Feder ausgelenkt werden, so dass das System nach \SI{4}{\min}
-noch einen Abst von minimaler und maximaler Auslenkung $|\Delta I|(t)$ von mindestens \SI{6}{\min{cm}} aufweist?\\
+Wie weit müsste eine Feder mit den gleichen Parametern ausgelenkt werden, so dass das System nach \SI{4}{\min}
+noch einen Abstand von minimaler und maximaler Auslenkung $|\Delta I|(t)$ von mindestens \SI{6}{\min{cm}} aufweist?\\
 Tipps: 
 \begin{itemize}
   \item Die Kreisfrequenz $\omega$ beträgt $\omega = 2 \uppi f$
   \item Wir setzen gehen davon aus, dass der maximale Auslenkungszustand und den unmittelbar folgenden minimale Zustand 
   den gleichen Betrag haben, d.h. $I(k2\uppi f) \approx -I\left( \left(k2 + 1 \right) \uppi f\right)$ , $k \in 
   \mathbb{N}$
-  \item Daher können wir die maximale Auslenkung als $|\Delta I|(t) \approx 2 \cdot I(0) \cdot \cdot e^{dt} $ annähern.
   \item Die vergangene Zeit $t$ lässt sich durch $t = k f^{-1}$ beschreiben.
+  \item Daher können wir die maximale Auslenkung als $|\Delta I|(t) \approx 2 \cdot I(0) \cdot  e^{-dkf} $ 
+  annähern.
 \end{itemize}
 
 %Keine Übungen
@@ -240,7 +245,6 @@ Random-Werte zwischen 1 und 100 und einen \texttt{Vector} namens \texttt{beta} m
 Intervalls.
 Vertausche anschließend die Inhalte der beiden Objekt, ohne irgendeine spezifische swap-Funktion zu verwenden.
 
-
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
 Erstelle einen \texttt{Vector} der Länge 1000, bei dem sich die Zahlen 0 und 1 abwechseln. Verwende dafür die Funktion 
 \texttt{rep(x, ...)}.
@@ -254,7 +258,8 @@ In einem dritten \texttt{Vector}-Paar soll daraus erwarte Verlauf von $|\Delta I
 werden.
 
 \stepcounter{exnum}\paragraph{\arabic{exnum}}
-$I(0) = 10$ Partyurlauber bringen bei ihrer eine infektiöse, neuartige Durchfallerkranung als Souvenir aus Malle mit 
+$I(0) = 10$ Partyurlauber bringen bei ihrer Rückkehr eine infektiöse, neuartige Durchfallerkranung als Souvenir aus 
+Malle mit 
 und stecken ihre Mitmenschen damit an.
 Die ungebremste Infektionswelle verläuft im Beginn 8 Wochen lang exponentiell mit den Neuinzidenzen $I(t) = I(0) 
 \text{e}^{\lambda t}$.
