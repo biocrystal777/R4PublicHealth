@@ -376,61 +376,212 @@ rectangle
   \end{frame}
 
 \begin{frame}
-  \frametitle{Data structures: \texttt{Vector} - specific functions}
+  \frametitle{Data structures: \texttt{Vector} specific functions}
+  \begin{block}{Length of a vector}
+    \ttfamily
+    > vec <- 3:27 \newline
+    > length(vec)
+    [1] 25
+  \end{block}
+  
+  \begin{block}{Sorting}
+    \ttfamily > vec <- c(1, 63, 45, 27, 34)\newline
+    > sort(vec)\newline
+    [1] 1 27 34 45 63
+  \end{block}
+  
+  \begin{block}{Reversing}
+    \ttfamily > vec <- 1:5\newline
+    > rev(vec)\newline
+    [1] 5 4 3 2 1
+  \end{block}
+  
+  %\begin{block}{Clearing from duplicates}
+  %\ttfamily
+  %> vec
+  %\end{block}
+  
+\end{frame}
 
-\begin{block}{Length of a vector}
-  \ttfamily
-  > vec <- 3:27 \newline
-  > length(vec)
-  [1] 25
-\end{block}
-
-\begin{block}{Sorting}
-\ttfamily > vec <- c(1, 63, 45, 27, 34)\newline
-> sort(vec)\newline
-[1] 1 27 34 45 63
-\end{block}
-
-\begin{block}{Reversing}
-\ttfamily > vec <- 1:5\newline
-> rev(vec)\newline
-[1] 5 4 3 2 1
-\end{block}
-
-%\begin{block}{Clearing from duplicates}
-%\ttfamily
-%> vec
-%\end{block}
-
-
-
+\begin{frame}
+  \frametitle{Data structures: \texttt{Vector} }
+  \includegraphics[width=1\linewidth]{./imgs/vector.pdf}
 \end{frame}
 
 \begin{frame}
   \frametitle{Data structures: \texttt{Vector} subsetting (I)}
-
-    \begin{block}{By single index}
-      \ttfamily
-     > vec <- seq(from = 10, to 50, by = 0,1)\newline
-     > vec[5] \newline
-     [1] 
-    \end{block}
+  
+  \begin{block}{By single index}
+    \ttfamily
+    > vec <- seq(from = 10, to 50, by = 0,1)\newline
+    > vec[5] \newline
+    [1] 
+  \end{block}
   
   \begin{block}{By index vector}  
-   \ttfamily
-  > vec <- seq(from = 10, to 50, by = 0,1)\newline
-  > vec[5:10]\newline
-  [1] 10.4 10.5 10.6 10.7 10.8
-\end{block}
-
-\begin{block}{All but ...}
-   \ttfamily
-> vec <- seq(from = 10, to 50, by = 0,1)\newline
-> vec[-(3:4)] \newline
-[1] 10 10.1 10.4 10.5 10.6
-\end{block}
+    \ttfamily
+    > vec <- seq(from = 10, to 50, by = 0,1)\newline
+    > vec[5:10]\newline
+    [1] 10.4 10.5 10.6 10.7 10.8
+  \end{block}
+  
+  \begin{block}{All but ...}
+    \ttfamily
+    > vec <- seq(from = 10, to 50, by = 0,1)\newline
+    > vec[-(3:4)] \newline
+    [1] 10 10.1 10.4 10.5 10.6
+  \end{block}
   
 \end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Descriptive statistical parameters (I)}
+
+  \ttfamily vec <- c(11:30, 15:40)
+  \begin{block}{Arithmetic Mean}
+    \begin{columns}
+      \begin{column}{0.6\textwidth}       
+    \ttfamily > mean(vec)
+      \end{column}
+          \begin{column}{0.4\textwidth}
+\[ 
+\overbar{x} = \frac{1}{n}\sum_{i=1}^{n}{x_i}
+\] 
+      \end{column}
+  \end{columns}
+  \end{block}
+
+\begin{block}{Median}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}       
+      \ttfamily > median(vec)
+    \end{column}
+    \begin{column}{0.5\textwidth} \[ \tilde{x} =
+      \small \begin{cases}
+   x_{m+1}  ~~~\, \forall ~n = 2m + 1   \\
+   \frac{ x_m + x_{m+1} }{2} ~ \forall~ n = 2m  
+%   \emph{$w_{ij}$}, if  -1$\leq$\emph{$w_{ij}$}$\leq$1\\ 
+%   -1, if \emph{$w_{ij}$}$<$-1 \\
+%   1, if \emph{$w_{ij}$}$>$1 
+   \end{cases}   
+      \] 
+    \end{column}
+  \end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Descriptive statistical parameters (II)}
+\vspace*{-1.75ex}
+\begin{block}{Variance of sample}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}       
+\small      \ttfamily > sd(vec)
+    \end{column}
+  
+    \begin{column}{0.45\textwidth}
+           \scriptsize
+      \[  
+s^2 = \frac{1}{n-1} \sum_{i=1}^{n}{(x_i - \overbar{x})^2 } 
+      \] 
+    \end{column}
+  \end{columns}
+\end{block}
+\vspace*{-1.25ex}
+\begin{block}{Variance of population}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}       
+\small      \ttfamily > var(vec) * n / (n-1)
+    \end{column}
+    \begin{column}{0.45\textwidth}
+                            \scriptsize
+      \[ 
+      \sigma^2 = \frac{1}{n} \sum_{i=1}^{n}{(x_i - \overbar{x})^2 }
+%      \overbar{x} = \frac{1}{n}\sum_{i=0}^{n}{x_i}
+      \] 
+    \end{column}
+  \end{columns}
+\end{block}
+\vspace*{-1.25ex}
+\begin{block}{Standard deviation of sample}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}       
+\small      \ttfamily > sd(vec)
+    \end{column}
+      \begin{column}{0.45\textwidth}
+                 \scriptsize
+      \[  
+      s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}{(x_i - \overbar{x})^2 } }
+      \] 
+    \end{column}
+  \end{columns}
+\end{block}
+\vspace*{-1.25ex}
+\begin{block}{Standard deviation of population}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}             
+     \small
+      \ttfamily > sd(vec) * sqrt( n / (n-1) )
+    \end{column}
+    \begin{column}{0.45\textwidth}
+                 \scriptsize
+      \[ 
+\sigma = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{(x_i - \overbar{x})^2 } }
+      \] 
+    \end{column}
+  \end{columns}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Descriptive statistical parameters (III)}
+  \ttfamily
+  vec.x <- 11:30\\
+  vec.y <- seq( from = 101, to = 139, by = 2 ) \\
+
+  \begin{block}{Covariance of 2 \texttt{Vector}\,s}
+    \begin{columns}
+      \begin{column}{0.4\textwidth}       
+        \ttfamily > cov(vec.x, vec.y)
+      \end{column}
+        \begin{column}{0.6\textwidth}
+      \scriptsize \rmfamily
+      \[ 
+    \text{Cov}(X,Y) = \frac{1}{n-1} \sum_{i=1}^{n}{\left(x_i - \overbar{x}\right)\left(y_i - \overbar{y}\right)  }
+      \] 
+    \end{column}
+    \end{columns}
+  
+  \end{block}
+
+\begin{block}{Correlation of 2 \texttt{Vector}\,s}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}       
+      \ttfamily > cor(vec)
+    \end{column}
+        \begin{column}{0.6\textwidth}
+  \scriptsize
+  \[ 
+  r(X,Y) = \frac{\displaystyle
+     \sum_{i=1}^{n}{\left(x_i - \overbar{x}\right)\left(y_i - \overbar{y}\right) }
+  }{ \displaystyle
+     \sqrt{ \sum_{i=1}^{n}{\left(x_i - \overbar{x}\right)^2}
+            \sum_{i=1}^{n}{\left(y_i - \overbar{y}\right)^2}  }
+  }
+  \] 
+\end{column}
+\end{columns}
+\end{block}
+
+
+ \end{frame}
+
+
 
 \begin{frame}
   \frametitle{Data types: \texttt{Numeric} \& \texttt{Character}}
