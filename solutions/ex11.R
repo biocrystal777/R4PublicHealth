@@ -23,3 +23,5 @@ t <- 4 * 60 # s
 It <- 6     # cm
 
 I0min <- It / ( 2 * exp( - ( d * t ) ) )
+
+print(I0min)
