@@ -17,4 +17,9 @@ I5s <- I0 * cos( omega * t )
 I5s <- I5s * exp( -d *  t/60 ) # t/60 -> in min
 print(I5s)
 
-## minimum 
+## I(4min) = 60 cm 
+
+t <- 4 * 60 # s
+It <- 6     # cm
+
+I0min <- It / ( 2 * exp( - ( d * t ) ) )
